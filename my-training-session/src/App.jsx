@@ -1,38 +1,23 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import ToDoForm from './components/form'
+import ToDoList from './components/todolist'
 import './App.css'
 
 function App() {
   const [todos, setTodos] = useState([])
-  const [todo, setTodo] = useState('')
 
-  const addTodo = () => {
+  const addTodo = (todo) => {
     setTodos([...todos, todo])
-    setTodo('')
   }
 
   return (
     <div className="App">
+      <h1>My To-Do List</h1>
       <header className="App-header">
-        <img src={reactLogo} className="App-logo" alt="react logo" />
-        <img src={viteLogo} className="App-logo" alt="vite logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <div>
-          <input
-            type="text"
-            value={todo}
-            onChange={(e) => setTodo(e.target.value)}
-          />
-          <button onClick={addTodo}>Add Todo</button>
-        </div>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>{todo}</li>
-          ))}
-        </ul>
+        <ToDoForm addTodo={addTodo} />
+        <ToDoList todos={todos} />
       </header>
     </div>
   )
