@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { atom, useAtom } from "jotai";
+
+const valueAtom = atom("");
 
 function ToDoForm({ addTodo }) {
-  const [value, setValue] = useState("");
+    const [value, setValue] = useAtom(valueAtom);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +16,9 @@ function ToDoForm({ addTodo }) {
 
   return (
     <form onSubmit={handleSubmit}>
-        Add a new task:
+        <p>
+            Add a new task to your list:
+        </p> 
       <input
         type="text"
         className="input"
