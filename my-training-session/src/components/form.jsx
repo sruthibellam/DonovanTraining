@@ -9,7 +9,6 @@ function ToDoForm({ addTodo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
-    console.log(value);
     addTodo(value);
     setValue("");
   };

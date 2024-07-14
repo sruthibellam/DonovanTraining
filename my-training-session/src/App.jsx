@@ -10,9 +10,9 @@ const todosAtom = atom([])
 
 function App() {
   const [todos, setTodos] = useAtom(todosAtom)
-
+  
   const addTodo = (todo) => {
-    setTodos([...todos, todo])
+    setTodos([...todos, {todoString: todo, done: false}])
   }
 
   return (
@@ -20,7 +20,7 @@ function App() {
       <h1>My To-Do List</h1>
       <header className="App-header">
         <ToDoForm addTodo={addTodo} />
-        <ToDoList todos={todos} />
+        <ToDoList todos={todos} setTodos={setTodos} />
       </header>
     </div>
   )
