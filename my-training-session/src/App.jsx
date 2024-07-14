@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import ToDoForm from './components/form'
-import ToDoList from './components/todolist'
-import './App.css'
-import { atom, useAtom } from 'jotai'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import ToDoForm from "./components/form";
+import ToDoList from "./components/todolist";
+import "./App.css";
+import { atom, useAtom } from "jotai";
 
-const todosAtom = atom([])
+const todosAtom = atom([]);
 
 function App() {
-  const [todos, setTodos] = useAtom(todosAtom)
-  
+  const [todos, setTodos] = useAtom(todosAtom);
+
   const addTodo = (todo) => {
-    setTodos([...todos, {todoString: todo, done: false}])
-  }
+    setTodos([...todos, { todoString: todo, done: false }]);
+  };
 
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
         <ToDoList todos={todos} setTodos={setTodos} />
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

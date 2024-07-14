@@ -4,7 +4,7 @@ import { atom, useAtom } from "jotai";
 const valueAtom = atom("");
 
 function ToDoForm({ addTodo }) {
-    const [value, setValue] = useAtom(valueAtom);
+  const [value, setValue] = useAtom(valueAtom);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,19 +15,17 @@ function ToDoForm({ addTodo }) {
 
   return (
     <form onSubmit={handleSubmit}>
-        <p>
-            Add a new task to your list:
-        </p> 
+      <p>Add a new task to your list:</p>
       <input
         type="text"
         className="input"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-        <button type="submit" className="button" disabled={value.length < 10}>
-            Add
-        </button>
-        {/* disable the submit button until 10 characters are input */}
+      <button type="submit" className="button" disabled={value.length < 10}>
+        Add
+      </button>
+      {/* disable the submit button until 10 characters are input */}
     </form>
   );
 }
