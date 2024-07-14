@@ -24,9 +24,10 @@ function ToDoForm({ addTodo }) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-        <button type="submit" className="button">
+        <button type="submit" className="button" disabled={value.length < 10}>
             Add
         </button>
+        {/* disable the submit button until 10 characters are input */}
     </form>
   );
 }
